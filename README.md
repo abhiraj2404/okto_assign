@@ -1,26 +1,60 @@
-# okto_docs
+# Okto SDK Documentation
 
-This is a Next.js application generated with
-[Create Fumadocs](https://github.com/fuma-nama/fumadocs).
+## Installation and Setup
 
-Run development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-pnpm dev
-# or
-yarn dev
-```
+- Node.js (v16 or later)
+- npm or yarn
 
-Open http://localhost:3000 with your browser to see the result.
+### Steps to Install and Run the Project
 
-## Learn More
+1. Clone the repository:
 
-To learn more about Next.js and Fumadocs, take a look at the following
-resources:
+   ```bash
+   git clone <repository-url>
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js
-  features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-- [Fumadocs](https://fumadocs.vercel.app) - learn about Fumadocs
+2. Navigate to the project directory:
+
+   ```bash
+   cd <project-directory>
+   ```
+
+3. Install the dependencies:
+
+   ```bash
+   npm install
+   ```
+
+4. Start the development server:
+
+   ```bash
+   npm run dev
+   ```
+
+5. Open the project in your browser:
+   The development server will usually run at `http://localhost:3000`.
+
+## Key Features
+
+### Structured Documentation
+
+- The documentation is organized into clear sections, such as Introduction, Guides, Core Concepts, and Examples. This makes it easier for users to navigate and find the information they need.
+- The structure includes four core concepts:
+  1. DWN (Decentralized Web Nodes)
+  2. ULL (Universal Ledger Layer)
+  3. DTN (Distributed Transaction Network)
+  4. The Okto Chain
+- A nested hierarchy is used to group related topics, ensuring logical flow and readability.
+
+### Installation Guides
+
+- Detailed installation instructions are provided for multiple frameworks, including React, React Native, and Next.js. This ensures compatibility and ease of setup for developers working in diverse environments.
+
+### Links for References
+
+- Auto-linked references are included throughout the documentation to guide users to related resources and official documentation.
+- These links enhance the learning experience by providing direct access to additional materials.
+
+By incorporating these features, the documentation is both visually appealing and highly functional, catering to developers of varying experience levels.
