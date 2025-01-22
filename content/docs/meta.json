@@ -1,0 +1,26 @@
+{
+  "title": "Okto SDK",
+  "pages": [
+    "---Introduction---",
+    "index",
+    "okto",
+    "---Guide---",
+    "setup",
+    "quickstart",
+    "(Installation)",
+
+    "---Core ---",
+
+    "(DWNs)",
+    "(ULL)",
+    "(DTNs)",
+    "(The-okto-chain)",
+
+    "---Examples---",
+    "brand-kit",
+    "faq",
+    "[Wallet Integration](https://docs.okto.tech/showcase)",
+    "[Token Swap Across Chains](https://docs.okto.tech/tools)"
+  ],
+  "root": true
+}
