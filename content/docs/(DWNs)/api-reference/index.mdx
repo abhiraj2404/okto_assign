@@ -1,17 +1,123 @@
 ---
 title: DWN API reference
-description: Components
+description: Decentralized Wallet Networks
 ---
 
-## Code Block
+import {
+  BugIcon,
+  CodeIcon,
+  KeyIcon,
+  LockIcon,
+  ShieldIcon,
+  Signature,
+  WalletIcon,
+  BellIcon,
+} from "lucide-react";
 
-```js
-console.log("Hello World");
-```
+This section provides comprehensive documentation for interacting with the DWN, a core component of the Okto Layer that enables secure and unified wallet management across multiple blockchains.
 
-## Cards
+Whether you're creating wallets, signing transactions, or managing cryptographic keys, the DWN API simplifies the process while ensuring maximum security and transparency.
+
+---
+
+## Getting Started
+
+To start using the DWN API, follow these steps:
+
+1. **Authenticate**:
+
+   - Generate an API key and initialize the SDK. Learn more in the [Authentication Guide](/docs/core/dwn-api-reference/authentication).
+
+2. **Create a Wallet**:
+
+   - Use the `createWallet` method to create a new wallet. Check out the [Wallet Management Guide](/docs/core/dwn-api-reference/wallet-management) for details.
+
+3. **Sign Transactions**:
+
+   - Sign transactions securely using the `signTransaction` method. Explore the [Transaction Signing Guide](/docs/core/dwn-api-reference/transaction-signing) for examples.
+
+4. **Manage Keys**:
+   - Generate and recover key shares using the DWN API. Refer to the [Key Management Guide](/docs/core/dwn-api-reference/key-management) for more information.
+
+---
+
+## Explore the DWN API
 
 <Cards>
-  <Card title="Learn more about Next.js" href="https://nextjs.org/docs" />
-  <Card title="Learn more about Fumadocs" href="https://fumadocs.vercel.app" />
+  <Card
+    icon={<KeyIcon />}
+    href="/docs/core/dwn-api-reference/authentication"
+    title="Authentication"
+  >
+    Learn how to authenticate and initialize the SDK to interact with the DWN.
+  </Card>
+  <Card
+    icon={<WalletIcon />}
+    href="/docs/core/dwn-api-reference/wallet-management"
+    title="Wallet Management"
+  >
+    Discover how to create, fetch, and update wallets using the DWN API.
+  </Card>
+  <Card
+    icon={<Signature />}
+    href="/docs/core/dwn-api-reference/transaction-signing"
+    title="Transaction Signing"
+  >
+    Explore how to sign single-chain and multi-chain transactions securely.
+  </Card>
+  <Card
+    icon={<LockIcon />}
+    href="/docs/core/dwn-api-reference/key-management"
+    title="Key Management"
+  >
+    Understand how the DWN handles cryptographic keys using MPC and TSS.
+  </Card>
+  <Card
+    icon={<ShieldIcon />}
+    href="/docs/core/dwn-api-reference/security-permissions"
+    title="Security and Permissions"
+  >
+    Learn how to set wallet permissions and enhance security using TEEs.
+  </Card>
+  <Card
+    icon={<BellIcon />}
+    href="/docs/core/dwn-api-reference/webhooks-events"
+    title="Webhooks and Events"
+  >
+    Set up webhooks and event listeners to monitor wallet activity in real-time.
+  </Card>
 </Cards>
+
+---
+
+## Example: Creating a Wallet and Signing a Transaction
+
+Here’s a quick example to get you started:
+
+```javascript
+import OktoSDK from "okto-sdk";
+
+// Initialize the SDK
+const okto = new OktoSDK({
+  apiKey: "your-api-key-here",
+  environment: "testnet",
+});
+
+// Create a new wallet
+const wallet = await okto.createWallet({
+  userId: "user-123",
+  loginMethod: "google",
+});
+
+// Sign a transaction
+const signedTx = await okto.signTransaction({
+  walletId: wallet.id,
+  transactionData: {
+    from: "0x...",
+    to: "0x...",
+    value: "0.1",
+  },
+});
+
+console.log("Signed Transaction:", signedTx);
+```
