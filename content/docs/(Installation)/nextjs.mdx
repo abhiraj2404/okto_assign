@@ -1,8 +1,179 @@
 ---
-title: NextJS Setup
-description: Your first document
+title: Next.js Setup
+description: Set up Okto SDK in your Next.js application with step-by-step instructions.
 ---
 
-Welcome to the docs! You can start writing documents in `/content/docs`.
+## Prerequisites
 
-## What is Next?
+- Node.js 16.8 or later
+- Next.js 13 or later
+
+## Installation
+
+<Tabs groupId='package-manager' persist items={['npm', 'pnpm', 'yarn', 'bun']}>
+
+```bash tab="npm"
+npm i @okto-sdk/nextjs
+```
+
+```bash tab="pnpm"
+pnpm i @okto-sdk/nextjs
+```
+
+```bash tab="yarn"
+yarn add @okto-sdk/nextjs
+```
+
+```bash tab="bun"
+bun add @okto-sdk/nextjs
+```
+
+</Tabs>
+
+## Configuration
+
+### 1. Environment Setup
+
+Create or update your `.env.local` file:
+
+```env heading=".env.local"
+NEXT_PUBLIC_OKTO_API_KEY=your_api_key_here
+NEXT_PUBLIC_OKTO_ENVIRONMENT=testnet
+```
+
+### 2. Provider Setup
+
+#### App Router (recommended)
+
+For Next.js 13+ with the App Router, create a root layout provider:
+
+```tsx heading="app/providers.tsx"
+"use client";
+
+import { OktoProvider } from "@okto-sdk/nextjs";
+
+export function Providers({ children }: { children: React.ReactNode }) {
+  return (
+    <OktoProvider
+      config={{
+        apiKey: process.env.NEXT_PUBLIC_OKTO_API_KEY!,
+        environment: process.env.NEXT_PUBLIC_OKTO_ENVIRONMENT as
+          | "testnet"
+          | "mainnet",
+      }}
+    >
+      {children}
+    </OktoProvider>
+  );
+}
+```
+
+Then use it in your root layout:
+
+```tsx heading="app/layout.tsx"
+import { Providers } from "./providers";
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html lang="en">
+      <body>
+        <Providers>{children}</Providers>
+      </body>
+    </html>
+  );
+}
+```
+
+#### Pages Router
+
+For the traditional Pages Router, wrap your app in `pages/_app.tsx`:
+
+```tsx heading="pages/_app.tsx"
+import type { AppProps } from "next/app";
+import { OktoProvider } from "@okto-sdk/nextjs";
+
+export default function App({ Component, pageProps }: AppProps) {
+  return (
+    <OktoProvider
+      config={{
+        apiKey: process.env.NEXT_PUBLIC_OKTO_API_KEY!,
+        environment: process.env.NEXT_PUBLIC_OKTO_ENVIRONMENT as
+          | "testnet"
+          | "mainnet",
+      }}
+    >
+      <Component {...pageProps} />
+    </OktoProvider>
+  );
+}
+```
+
+## Usage Example
+
+### Using Okto Hooks
+
+```tsx heading="app/components/WalletConnect.tsx"
+"use client";
+
+import { useOkto } from "@okto-sdk/nextjs";
+
+export function WalletConnect() {
+  const { connect, disconnect, address, isConnected } = useOkto();
+
+  return (
+    <div>
+      {!isConnected ? (
+        <button
+          onClick={connect}
+          className="px-4 py-2 bg-blue-500 text-white rounded"
+        >
+          Connect Wallet
+        </button>
+      ) : (
+        <div className="space-y-2">
+          <p>Connected: {address}</p>
+          <button
+            onClick={disconnect}
+            className="px-4 py-2 bg-red-500 text-white rounded"
+          >
+            Disconnect
+          </button>
+        </div>
+      )}
+    </div>
+  );
+}
+```
+
+### Server Components Support
+
+For server components, use the Okto Client:
+
+```tsx heading="app/page.tsx"
+import { OktoClient } from "@okto-sdk/nextjs/server";
+
+export default async function Page() {
+  const okto = new OktoClient({
+    apiKey: process.env.OKTO_API_KEY!,
+  });
+
+  const stats = await okto.getNetworkStats();
+
+  return (
+    <div>
+      <h1>Network Stats</h1>
+      <pre>{JSON.stringify(stats, null, 2)}</pre>
+    </div>
+  );
+}
+```
+
+## Next Steps
+
+- Check out the [API Reference](/docs/api-reference)
+- Learn about [Advanced Configuration](/docs/advanced-config)
+- View [Example Projects](/docs/examples)

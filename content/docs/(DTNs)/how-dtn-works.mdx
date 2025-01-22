@@ -1,0 +1,92 @@
+---
+title: How DTNs work ?
+---
+
+import { Step, Steps } from "fumadocs-ui/components/steps";
+
+The **Decentralized Transaction Network (DTN)** is the backbone of the Okto Layer, automating and coordinating complex multi-chain transactions. This page dives into the technical details of how DTNs operate, including their architecture, workflow, and key components.
+
+---
+
+## DTN Architecture
+
+The DTN is designed to handle multi-chain transactions efficiently and securely. Below is a diagram illustrating its architecture:
+
+![DTN Architecture](https://static.wixstatic.com/media/9ffdd4_d9604c69877546c8a019220b15a65314~mv2.png/v1/fill/w_925,h_519,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/9ffdd4_d9604c69877546c8a019220b15a65314~mv2.png)
+
+### Key Components of the DTN Architecture
+
+1. **User Interface (UI)**: The frontend interface where users initiate multi-chain transactions (e.g., swapping, bridging, staking).
+
+2. **Okto Gateway**: The entry point for user requests. It validates and forwards requests to the DTN.
+
+3. **Job Scheduler**: Breaks down user requests into smaller subtasks and schedules them for execution.
+
+4. **Task Executor**: Executes each subtask in the correct sequence, ensuring all steps are completed efficiently.
+
+5. **Okto Chain**: Logs each step of the transaction, providing a transparent and immutable record of the process.
+
+6. **Decentralized Wallet Network (DWN)**: Handles secure signing of transactions using MPC-based security.
+
+7. **Unified Liquidity Layer (ULL)**: Provides efficient cross-chain swaps and liquidity access.
+
+---
+
+## DTN Workflow
+
+The DTN simplifies multi-chain transactions by automating the entire process. Here’s a step-by-step breakdown of its workflow:
+
+<Steps>
+  <Step>
+    ### User Request
+
+    A user initiates a multi-chain transaction (e.g., swapping tokens on Ethereum, bridging them to BNB Chain, and staking them).
+
+  </Step>
+
+  <Step>
+    ### Job Creation
+
+    The request is logged as a **job** on the Okto Chain, which defines the user’s intent and the steps required to achieve it.
+
+  </Step>
+
+  <Step>
+    ### Task Breakdown
+
+    The DTN breaks the job into smaller subtasks, such as:
+
+    - Swapping tokens on the source chain.
+    - Bridging tokens to the destination chain.
+    - Staking tokens on the destination chain.
+
+  </Step>
+
+  <Step>
+    ### Execution
+
+    The DTN executes each subtask in the correct sequence, ensuring that all steps are completed efficiently.
+
+  </Step>
+
+  <Step>
+    ### On-Chain Logging
+
+    Each step of the transaction is logged on the Okto Chain, providing a transparent and immutable record of the process.
+
+  </Step>
+
+  <Step>
+    ### Completion
+
+    The user receives the final result (e.g., staked tokens on the destination chain) without needing to manage each step manually.
+
+  </Step>
+</Steps>
+
+<Callout>
+  **Did You Know?** The DTN’s asynchronous capabilities allow it to handle
+  transactions across multiple chains, even if they occur at different times.
+</Callout>
+
+---

@@ -1,17 +1,68 @@
 ---
 title: How DWN works ?
-description: Components
 ---
 
-## Code Block
+import { ExternalLink } from "lucide-react";
 
-```js
-console.log("Hello World");
-```
+Decentralized Wallet Networks (DWNs) are the backbone of the Okto Layer’s wallet experience, providing users with a seamless and secure method to interact with multiple blockchains. The DWN simplifies the process by enabling users to access various blockchain networks with a single unified wallet. But how exactly do DWNs make this possible?
 
-## Cards
+## The DWN Architecture
+
+At the core of DWNs is a decentralized network of nodes that manage wallet keys using advanced cryptographic techniques. Let’s break down how this works in a typical DWN setup:
+
+![Image](https://static.wixstatic.com/media/9ffdd4_891dff97d1a94ccbb3af2f8a903dd21b~mv2.png/v1/fill/w_925,h_520,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/9ffdd4_891dff97d1a94ccbb3af2f8a903dd21b~mv2.png)
+
+<Callout>
+  DWNs simplify multi-chain wallet management and significantly enhance
+  security.
+</Callout>
+
+- **Multi-Party Computation (MPC)**: Rather than relying on a single entity to hold and sign a wallet’s private key, the DWN employs MPC. This means the private key is never fully constructed or stored on a single node. Instead, multiple nodes collaborate to generate a cryptographic signature, ensuring decentralized control and security.
+- **Threshold Signature Scheme (TSS)**: In this scheme, multiple signers are involved in creating a signature for transactions, but only a predefined number of nodes (a threshold) need to collaborate to approve it. In Okto’s DWN, the system follows a 11/20 threshold, meaning that 11 out of 20 nodes must collaborate to approve a transaction.
+
+- **Delegated MPC Signers**: The DWN uses a network of MPC signers, connected through the EigenLayer AVS (Actively Validated Services). These signers are responsible for securely handling wallet keys and approving transactions.
+
+- **Trusted Execution Environments (TEEs)**: Each MPC node runs inside a secure enclave, known as a Trusted Execution Environment (TEE). TEEs add an additional layer of security by isolating the execution of sensitive data from the rest of the system, preventing unauthorized access to wallet keys.
+
+## How DWNs Handle Transactions
+
+When you initiate a transaction through a DWN, here’s the flow that happens:
+
+1. **User Request**: A user makes a request, such as sending tokens or interacting with a smart contract.
+2. **Transaction Authorization**: The DWN checks the user's request and verifies if it aligns with the permissions associated with their wallet. Once validated, the transaction proceeds to the signing process.
+
+3. **Signature Creation**: The DWN sends the transaction to its network of MPC signers. These signers collaboratively compute the necessary cryptographic signature.
+
+4. **Threshold Approval**: The transaction is approved once the required threshold (e.g., 11 out of 20 signers) is reached, ensuring decentralized control and security.
+
+5. **Transaction Execution**: After obtaining the signature, the transaction is forwarded to the relevant blockchain for execution.
+
+## Security in DWNs
+
+Security is a critical concern when dealing with wallets and private keys. The DWN architecture ensures that:
+
+- **No Single Point of Failure**: Since the private keys are never stored in one place and the signing process requires multiple nodes to collaborate, DWNs eliminate the risk of a single point of failure or centralized control.
+
+- **Key Management**: By using MPC and TSS, DWNs ensure that keys are only ever partially revealed, significantly reducing the risk of compromise.
+
+- **Tamper-Resistant**: Each signing operation is validated across multiple nodes, and each transaction is logged for verification on the Okto Chain, ensuring that the process is transparent and tamper-resistant.
+
+## User Experience with DWNs
+
+The beauty of DWNs lies in the user experience. Instead of juggling different wallets for each blockchain, the DWN allows users to:
+
+- **Unified Wallet**: Access and manage assets across multiple blockchains with a single wallet.
+- **Easy Onboarding**: Users can log in via everyday methods (Google, Facebook, etc.), bypassing the need for seed phrases or hardware wallets.
+- **Seamless Multi-Chain Operations**: Execute transactions across chains without needing to manually switch wallets or worry about different blockchain ecosystems.
 
 <Cards>
-  <Card title="Learn more about Next.js" href="https://nextjs.org/docs" />
-  <Card title="Learn more about Fumadocs" href="https://fumadocs.vercel.app" />
+  <Card icon={<ExternalLink />} href="/docs/api-reference" title="Home">
+    DWN API Reference
+  </Card>
 </Cards>
+
+## Conclusion
+
+Decentralized Wallet Networks (DWN) represent a significant leap forward in making Web3 more user-friendly. Through the use of cutting-edge cryptographic techniques like MPC and TSS, DWNs enable a secure, decentralized, and seamless wallet experience. With the added benefit of user-centric design, DWNs open the door to a simplified, multi-chain world that’s both accessible and secure for users and developers alike.
+
+Stay tuned for more in-depth explorations of how Okto is transforming the Web3 landscape!

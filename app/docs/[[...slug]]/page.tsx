@@ -1,12 +1,14 @@
-import { source } from '@/lib/source';
+import { source } from "@/lib/source";
 import {
   DocsPage,
   DocsBody,
   DocsDescription,
   DocsTitle,
-} from 'fumadocs-ui/page';
-import { notFound } from 'next/navigation';
-import defaultMdxComponents from 'fumadocs-ui/mdx';
+} from "fumadocs-ui/page";
+import { notFound } from "next/navigation";
+import defaultMdxComponents from "fumadocs-ui/mdx";
+import { ImageZoom } from "fumadocs-ui/components/image-zoom";
+import { Tab, Tabs } from 'fumadocs-ui/components/tabs';
 
 export default async function Page(props: {
   params: Promise<{ slug?: string[] }>;
@@ -22,7 +24,14 @@ export default async function Page(props: {
       <DocsTitle>{page.data.title}</DocsTitle>
       <DocsDescription>{page.data.description}</DocsDescription>
       <DocsBody>
-        <MDX components={{ ...defaultMdxComponents }} />
+        <MDX
+          components={{
+            ...defaultMdxComponents,
+            img: (props) => <ImageZoom {...(props as any)} />,
+            Tabs,
+            Tab,
+          }}
+        />
       </DocsBody>
     </DocsPage>
   );

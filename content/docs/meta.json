@@ -10,16 +10,13 @@
     "(Installation)",
 
     "---Core ---",
-
     "(DWNs)",
     "(ULL)",
     "(DTNs)",
     "(The-okto-chain)",
 
     "---Examples---",
-    "brand-kit",
-    "faq",
-    "[Wallet Integration](https://docs.okto.tech/showcase)",
+    "[Showcase](https://docs.okto.tech/showcase)",
     "[Token Swap Across Chains](https://docs.okto.tech/tools)"
   ],
   "root": true

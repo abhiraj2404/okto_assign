@@ -1,17 +1,45 @@
 ---
-title: Overview of DWN
-description: Components
+title: Overview of DWNs
 ---
 
-## Code Block
+Decentralized Wallet Networks (DWNs) are one of the core components of the Okto Layer, designed to simplify and secure the user experience when interacting with multiple blockchains. In the world of blockchain, managing different wallets for different chains can quickly become a burden. DWNs solve this problem by offering a unified wallet experience across various chains, including Ethereum, Solana, Aptos, and others.
 
-```js
-console.log("Hello World");
-```
+## What is a Decentralized Wallet Network (DWN)?
 
-## Cards
+A DWN is a blockchain-based wallet that operates across multiple networks without the need for separate wallets or complex key management. It allows users to interact with different blockchains through a single interface, eliminating the need to juggle multiple wallets or deal with complicated private key management.
 
-<Cards>
-  <Card title="Learn more about Next.js" href="https://nextjs.org/docs" />
-  <Card title="Learn more about Fumadocs" href="https://fumadocs.vercel.app" />
-</Cards>
+At the core of the DWN is a decentralized architecture that ensures security and resilience. By using Multi-Party Computation (MPC) for signing transactions, DWNs protect users from potential attacks and prevent any single entity from gaining control over the wallet.
+
+### Key Features of DWNs
+
+#### 1. **Unified Wallet Experience**
+
+DWN provides a one-stop solution for managing assets across various chains. Users no longer need to manage separate wallets for Ethereum, Solana, Aptos, or any other supported blockchain. The DWN abstracts these complexities and presents a seamless user experience.
+
+#### 2. **MPC-Based Security**
+
+The DWN leverages Multi-Party Computation (MPC) for securely signing transactions. In a traditional wallet, private keys are stored in a single location, which can be vulnerable. With MPC, the private keys are never fully exposed. Instead, multiple nodes collaborate to compute the signature, ensuring decentralization and increased security.
+
+#### 3. **Threshold Signature Schemes (TSS)**
+
+The DWN uses a threshold signature scheme (11/20 MPC signing), where a group of 11 out of 20 nodes must validate and sign a transaction. This eliminates the need for a single point of failure and prevents unauthorized access.
+
+#### 4. **Trusted Execution Environments (TEEs)**
+
+Each node in the DWN operates within a Trusted Execution Environment (TEE), ensuring that the transaction process is secure and tamper-proof. This additional layer of security guarantees the privacy and integrity of the wallet.
+
+#### 5. **User-Friendly Onboarding**
+
+Unlike traditional wallets that require users to manage private keys or seed phrases, DWNs allow users to log in with familiar methods like Google or Facebook accounts. This makes it easier for newcomers to join the Web3 ecosystem and interact with blockchain applications.
+
+## Benefits of DWNs
+
+- **Simplicity**: With DWNs, users only need to manage one wallet, regardless of how many blockchains they interact with.
+- **Security**: The decentralized nature of DWNs, combined with MPC and TSS, ensures that user assets remain safe from hacks or unauthorized access.
+- **Efficiency**: By integrating with Okto’s ULL and DTN, DWNs can facilitate seamless and secure cross-chain interactions without the need for users to handle complex transactions manually.
+
+## Why DWNs Matter for the Okto Layer
+
+DWN is at the heart of Okto's mission to simplify Web3 and make blockchain accessible to all users. It abstracts away the complexity of managing multiple wallets and enables users to interact with decentralized applications (dApps) across different blockchains easily. Combined with the other core components of the Okto Layer—ULL, DTN, and the Okto Chain—DWN ensures that users can enjoy a unified, secure, and user-friendly experience across the entire blockchain ecosystem.
+
+Stay tuned for deeper dives into the other components of the Okto Layer!

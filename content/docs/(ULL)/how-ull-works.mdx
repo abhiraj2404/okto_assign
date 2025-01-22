@@ -1,0 +1,52 @@
+---
+title: Workings of ULL ?
+---
+
+The **Unified Liquidity Layer (ULL)** is a sophisticated system designed to simplify cross-chain interactions by aggregating liquidity and optimizing transaction routes. This page explains the inner workings of the ULL, including its architecture, key components, and operational flow.
+
+## How the ULL Works
+
+The ULL operates through a series of steps to ensure efficient and secure cross-chain swaps. Here’s a detailed breakdown of its workflow:
+
+### Step 1: User Request
+
+A user initiates a cross-chain swap (e.g., swapping USDC on Ethereum to BNB on BNB Chain).
+
+### Step 2: Route Aggregation
+
+The ULL aggregates data from multiple bridging and swapping solutions, such as LayerZero, Socket, and Wormhole, to evaluate all possible routes.
+
+### Step 3: Path Optimization
+
+The ULL selects the most efficient route based on factors like:
+
+- **Speed**: The fastest route for the transaction.
+- **Cost**: The route with the lowest fees.
+- **Security**: The most secure and reliable route.
+
+### Step 4: Transaction Execution
+
+- **Solvers** front the liquidity on the source chain and initiate the swap.
+- **Settlers** finalize the transaction on the destination chain, ensuring the swapped tokens are delivered to the user’s wallet.
+
+### Step 5: Completion
+
+The user receives the swapped tokens on the destination chain, with minimal fees and maximum efficiency.
+
+<Callout>
+  **Did You Know?** The ULL’s use of solvers and settlers ensures that
+  transactions are executed securely and efficiently, even across multiple
+  chains.
+</Callout>
+
+## ULL Architecture
+
+A diagram illustrating the architecture of the ULL:
+
+![ULL Architecture](https://static.wixstatic.com/media/9ffdd4_3243cf2299a74de69fe0becfc95f7db3~mv2.png/v1/fill/w_925,h_520,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/9ffdd4_3243cf2299a74de69fe0becfc95f7db3~mv2.png)
+
+---
+
+## Conclusion
+
+The Unified Liquidity Layer (ULL) is a powerful tool for simplifying cross-chain interactions, offering a seamless and efficient way to access liquidity across multiple blockchains. By abstracting the complexities of fragmented liquidity, the ULL empowers developers to build powerful Web3 applications with ease.

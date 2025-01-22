@@ -1,11 +1,11 @@
 ---
-title: React Setup
-description: Set up Okto SDK in your React application with step-by-step instructions.
+title: React Native Setup
+description: Set up Okto SDK in your React Native application with step-by-step instructions.
 ---
 
 ## Prerequisites
 
-- React
+- React Native CLI
 - Node.js
 - npm or yarn
 
@@ -14,19 +14,19 @@ description: Set up Okto SDK in your React application with step-by-step instruc
 <Tabs groupId='package-manager' persist items={['npm', 'pnpm', 'yarn', 'bun']}>
 
 ```bash tab="npm"
-npm i @okto-sdk/react-sdk
+npm i @okto-sdk/react-native-sdk
 ```
 
 ```bash tab="pnpm"
-pnpm i @okto-sdk/react-sdk
+pnpm i @okto-sdk/react-native-sdk
 ```
 
 ```bash tab="yarn"
-yarn add @okto-sdk/react-sdk
+yarn add @okto-sdk/react-native-sdk
 ```
 
 ```bash tab="bun"
-bun add @okto-sdk/react-sdk
+bun add @okto-sdk/react-native-sdk
 ```
 
 </Tabs>
@@ -38,7 +38,7 @@ After installation, you need to configure the Okto SDK. This involves setting up
 ```typescript heading="App.tsx"
 // App.tsx
 import React from "react";
-import { OktoProvider } from "@okto/react-sdk";
+import { OktoProvider } from "@okto/react-native-sdk";
 const App = () => {
   return (
     <OktoProvider

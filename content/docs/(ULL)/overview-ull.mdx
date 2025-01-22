@@ -1,0 +1,53 @@
+---
+title: Overview of ULL
+description: "Discover how the Unified Liquidity Layer (ULL) simplifies cross-chain swaps and liquidity access, powered by ERC-7683 and advanced aggregation techniques."
+---
+
+## Overview of the Unified Liquidity Layer (ULL)
+
+The **Unified Liquidity Layer (ULL)** is a core component of the Okto Layer, designed to address one of the biggest challenges in blockchain today: **fragmented liquidity**. By aggregating multiple bridging and swapping solutions, the ULL ensures seamless and efficient cross-chain interactions, making it feel like you’re using a single blockchain.
+
+---
+
+## What is the ULL?
+
+The ULL acts as an **"aggregator of aggregators"**, connecting various bridging and swapping protocols like [LayerZero](https://layerzero.network), [Socket](https://socket.tech), and [Wormhole](https://wormhole.com). It automatically selects the best route for cross-chain swaps based on factors like speed, cost, and security.
+
+### Key Features of the ULL
+
+1. **Aggregator of Aggregators**: The ULL integrates with multiple bridging and swapping solutions, ensuring the most efficient route is chosen for every transaction.
+
+2. **Automatic Path Optimization**: For example, if you want to swap USDC on Polygon to BNB on BNB Chain, the ULL evaluates all available routes and selects the one with the lowest cost or fastest speed.
+
+3. **ERC-7683 Compatibility**: The ULL leverages the [ERC-7683](https://eips.ethereum.org/EIPS/eip-7683) standard, enabling seamless interaction across both EVM and non-EVM chains like Solana and Aptos.
+
+4. **Solvers & Settlers**: Specialized roles called **solvers** front the liquidity on one chain, while **settlers** finalize the trade on the destination chain, ensuring fast and secure cross-chain token movement.
+
+5. **Minimized Fees**: By pooling operations and optimizing routes, the ULL often results in lower total costs compared to manual bridging.
+
+---
+
+## How the ULL Works
+
+The ULL simplifies cross-chain interactions by abstracting the complexities of fragmented liquidity. Here’s a high-level overview of its workflow:
+
+1. **User Request**: A user initiates a cross-chain swap (e.g., USDC on Ethereum to BNB on BNB Chain).
+
+2. **Route Aggregation**: The ULL aggregates data from multiple bridging and swapping solutions, such as LayerZero, Socket, and Wormhole.
+
+3. **Path Optimization**: The ULL selects the most efficient route based on speed, cost, and security.
+
+4. **Transaction Execution**: Solvers front the liquidity on the source chain, and settlers finalize the trade on the destination chain.
+
+5. **Completion**: The user receives the swapped tokens on the destination chain, with minimal fees and maximum efficiency.
+
+<Callout>
+  **Did You Know?** The ULL is powered by the ERC-7683 standard, which ensures a
+  unified approach to cross-chain liquidity.
+</Callout>
+
+---
+
+## Conclusion
+
+The Unified Liquidity Layer (ULL) is a game-changer for cross-chain interactions, offering a seamless and efficient way to access liquidity across multiple blockchains. By abstracting the complexities of fragmented liquidity, the ULL empowers developers to build powerful Web3 applications with ease.

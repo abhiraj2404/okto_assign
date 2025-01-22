@@ -1,17 +1,121 @@
 ---
 title: Quickstart
-description: Components
+description: "Get started with the Okto SDK by building a simple application that interacts with the Okto Layer. Follow this step-by-step guide to create your first Web3 app."
+icon: rocket
 ---
 
-## Code Block
+## Create Your First Okto App
 
-```js
-console.log("Hello World");
-```
+Welcome to the Okto SDK Quickstart guide! In this tutorial, you’ll learn how to build a simple application that interacts with the Okto Layer. By the end of this guide, you’ll have a working app that performs a cross-chain token swap.
 
-## Cards
+---
 
-<Cards>
-  <Card title="Learn more about Next.js" href="https://nextjs.org/docs" />
-  <Card title="Learn more about Fumadocs" href="https://fumadocs.vercel.app" />
-</Cards>
+## Prerequisites
+
+Before you begin, ensure you have the following:
+
+- **Node.js** (v16 or higher)
+- **npm** or **yarn** (for package management)
+- An **API Key** from Okto
+- Basic knowledge of JavaScript/TypeScript
+
+---
+
+## Step 1: Set Up Your Project
+
+1. **Create a New Project**:
+   Create a new directory for your project and initialize it with `npm` or `yarn`:
+
+   ```bash
+   mkdir my-okto-app
+   cd my-okto-app
+   npm init -y
+   ```
+
+2. **Install the Okto SDK**:
+   Install the Okto SDK package from npm:
+
+   ```bash
+   npm install @okto/sdk
+   ```
+
+## Step 2: Initialize the SDK
+
+1. **Create an `index.js` File**:
+   Create a new file named `index.js` in your project directory.
+
+2. **Import and Initialize the SDK**:
+   Add the following code to initialize the Okto SDK:
+
+   ```javascript
+   import OktoSDK from "okto-sdk";
+
+   const okto = new OktoSDK({
+     apiKey: "your-api-key-here", // Replace with your actual API key
+     environment: "testnet", // Use 'mainnet' for production
+   });
+
+   console.log("Okto SDK initialized successfully!");
+   ```
+
+3. **Run the Code**:
+   Execute the script to verify the SDK is working:
+
+   ```bash
+   node index.js
+   ```
+
+   If everything is set up correctly, you should see the message: `Okto SDK initialized successfully!`.
+
+## Step 3: Perform a Cross-Chain Swap
+
+Now that the SDK is initialized, let’s perform a cross-chain token swap.
+
+1. **Add Swap Logic**:
+   Update your `index.js` file with the following code:
+
+   ```javascript
+   import OktoSDK from "okto-sdk";
+
+   const okto = new OktoSDK({
+     apiKey: "your-api-key-here",
+     environment: "testnet",
+   });
+
+   // Perform a cross-chain swap
+   okto
+     .swapTokens({
+       fromChain: "Ethereum",
+       toChain: "BNB Chain",
+       token: "USDC",
+       amount: "100",
+     })
+     .then((response) => {
+       console.log("Swap Successful:", response);
+     })
+     .catch((error) => {
+       console.error("Swap Failed:", error);
+     });
+   ```
+
+2. **Run the Script**:
+   Execute the script to perform the swap:
+
+   ```bash
+   node index.js
+   ```
+
+   If the swap is successful, you’ll see the transaction details in the console.
+
+   ***
+
+   ## Step 4: Build a Simple UI (Optional)
+
+   To make your app more interactive, you can add a simple HTML/JavaScript frontend.
+
+   1. **Create an `index.html` File**:
+      Create a new file named `index.html` in your project directory.
+
+   2. **Add the UI Code**
+
+   3. **Run the App**
