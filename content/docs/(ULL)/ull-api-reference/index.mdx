@@ -3,15 +3,135 @@ title: ULL API reference
 description: Components
 ---
 
-## Code Block
+import {
+  DollarSign,
+  BellIcon,
+  Settings,
+  LayersIcon,
+  ArrowDownUp,
+} from "lucide-react";
 
-```js
-console.log("Hello World");
-```
+This section provides comprehensive documentation for interacting with the ULL, a core component of the Okto Layer that enables efficient cross-chain swaps and liquidity management.
 
-## Cards
+Whether you're performing cross-chain swaps, aggregating liquidity, or managing fees, the ULL API simplifies the process while ensuring maximum efficiency and transparency.
+
+---
+
+## Getting Started
+
+To start using the ULL API, follow these steps:
+
+1. **Authenticate**:
+
+   - Generate an API key and initialize the SDK. Learn more in the [Authentication Guide](/docs/core/dwn-api-reference/authentication).
+
+2. **Fetch Liquidity Routes**:
+
+   - Use the `getLiquidityRoutes` method to fetch available routes for a cross-chain swap. Check out the [Liquidity Aggregation Guide](/docs/core/ull-api-reference/liquidity-aggregation) for details.
+
+3. **Perform a Cross-Chain Swap**:
+
+   - Initiate a cross-chain swap using the `initiateSwap` method. Explore the [Cross-Chain Swaps Guide](/docs/core/ull-api-reference/cross-chain-swaps) for examples.
+
+4. **Monitor Swap Status**:
+   - Use webhooks or event listeners to monitor the status of your swaps. Refer to the [Webhooks and Events Guide](/docs/core/ull-api-reference/webhooks-events) for more information.
+
+---
+
+## Explore the ULL API
 
 <Cards>
-  <Card title="Learn more about Next.js" href="https://nextjs.org/docs" />
-  <Card title="Learn more about Fumadocs" href="https://fumadocs.vercel.app" />
+  <Card
+    icon={<LayersIcon />}
+    href="/docs/core/ull-api-reference/liquidity-aggregation"
+    title="Liquidity Aggregation"
+  >
+    Learn how to fetch and select the best liquidity routes for cross-chain
+    swaps.
+  </Card>
+  <Card
+    icon={<ArrowDownUp />}
+    href="/docs/core/ull-api-reference/cross-chain-swaps"
+    title="Cross-Chain Swaps"
+  >
+    Discover how to perform seamless cross-chain swaps using the ULL API.
+  </Card>
+  <Card
+    icon={<Settings />}
+    href="/docs/core/ull-api-reference/solvers-settlers"
+    title="Solvers and Settlers"
+  >
+    Understand the roles of solvers and settlers in the ULL and how to interact
+    with them.
+  </Card>
+  <Card
+    icon={<DollarSign />}
+    href="/docs/core/ull-api-reference/fee-management"
+    title="Fee Management"
+  >
+    Learn how to calculate and optimize fees for cross-chain swaps.
+  </Card>
+  <Card
+    icon={<BellIcon />}
+    href="/docs/core/ull-api-reference/webhooks-events"
+    title="Webhooks and Events"
+  >
+    Set up webhooks and event listeners to monitor swap activity in real-time.
+  </Card>
 </Cards>
+
+---
+
+## Example: Performing a Cross-Chain Swap
+
+Here’s a quick example to get you started:
+
+```javascript
+import OktoSDK from "okto-sdk";
+
+// Initialize the SDK
+const okto = new OktoSDK({
+  apiKey: "your-api-key-here",
+  environment: "testnet",
+});
+
+// Fetch liquidity routes
+const routes = await okto.getLiquidityRoutes({
+  fromChain: "Ethereum",
+  toChain: "BNB Chain",
+  token: "USDC",
+});
+
+// Select the best route
+const bestRoute = okto.selectBestRoute(routes);
+
+// Initiate the swap
+const swap = await okto.initiateSwap({
+  fromChain: "Ethereum",
+  toChain: "BNB Chain",
+  token: "USDC",
+  amount: "100",
+  route: bestRoute,
+});
+
+console.log("Swap Initiated:", swap);
+```
+
+---
+
+## ULL API Functions Overview
+
+Below is a comprehensive list of all the functions available in the **Unified Liquidity Layer (ULL) API**, grouped by category for easy reference.
+
+| **Category**              | **Function**                                                                                                               | **Description**                                                                          |
+| ------------------------- | -------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| **Liquidity Aggregation** | [`getLiquidityRoutes(fromChain, toChain, token)`](/docs/core/ull-api-reference/liquidity-aggregation#get-liquidity-routes) | Fetches available liquidity routes for a cross-chain swap.                               |
+|                           | [`selectBestRoute(routes)`](/docs/core/ull-api-reference/liquidity-aggregation#select-best-route)                          | Selects the best route for a cross-chain swap based on speed, cost, and security.        |
+| **Cross-Chain Swaps**     | [`initiateSwap(fromChain, toChain, token, amount, route)`](/docs/core/ull-api-reference/cross-chain-swaps#initiate-swap)   | Initiates a cross-chain swap using the specified route.                                  |
+|                           | [`getSwapStatus(swapId)`](/docs/core/ull-api-reference/cross-chain-swaps#get-swap-status)                                  | Retrieves the status of a cross-chain swap.                                              |
+| **Solvers and Settlers**  | [`getSolverDetails(solverId)`](/docs/core/ull-api-reference/solvers-settlers#get-solver-details)                           | Fetches details of a specific solver, including their liquidity and performance metrics. |
+|                           | [`getSettlerDetails(settlerId)`](/docs/core/ull-api-reference/solvers-settlers#get-settler-details)                        | Fetches details of a specific settler, including their transaction history.              |
+| **Fee Management**        | [`getFeeEstimate(fromChain, toChain, token, amount)`](/docs/core/ull-api-reference/fee-management#get-fee-estimate)        | Calculates the estimated fee for a cross-chain swap.                                     |
+|                           | [`adjustSwapFees(swapId, newFee)`](/docs/core/ull-api-reference/fee-management#adjust-swap-fees)                           | Adjusts the fee for a specific swap.                                                     |
+
+---

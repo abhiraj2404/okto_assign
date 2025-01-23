@@ -121,3 +121,27 @@ const signedTx = await okto.signTransaction({
 
 console.log("Signed Transaction:", signedTx);
 ```
+
+---
+
+## DWN API Functions Overview
+
+Below is a comprehensive list of all the functions available in the **Decentralized Wallet Network (DWN) API**, grouped by category for easy reference.
+
+| **Category**                 | **Function**                                                                                                                   | **Description**                                                                           |
+| ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------- |
+| **Authentication**           | [`initializeSDK(apiKey, environment)`](/docs/core/dwn-api-reference/authentication#initialize-sdk)                             | Initializes the SDK with your API key and environment (testnet/mainnet).                  |
+|                              | [`refreshToken()`](/docs/core/dwn-api-reference/authentication#refresh-token)                                                  | Refreshes the authentication token for continued API access.                              |
+| **Wallet Management**        | [`createWallet(userId, loginMethod)`](/docs/core/dwn-api-reference/wallet-management#create-wallet)                            | Creates a new wallet for a user with the specified login method (e.g., Google, Facebook). |
+|                              | [`getWallet(walletId)`](/docs/core/dwn-api-reference/wallet-management#get-wallet)                                             | Retrieves details of a specific wallet, including address and balance.                    |
+|                              | [`updateWallet(walletId, settings)`](/docs/core/dwn-api-reference/wallet-management#update-wallet)                             | Updates wallet settings, such as permissions or recovery options.                         |
+| **Transaction Signing**      | [`signTransaction(transactionData)`](/docs/core/dwn-api-reference/transaction-signing#sign-transaction)                        | Signs a single-chain transaction securely using MPC.                                      |
+|                              | [`signMultiChainTransaction(transactionSteps)`](/docs/core/dwn-api-reference/transaction-signing#sign-multi-chain-transaction) | Signs a multi-chain transaction, breaking it into smaller subtasks.                       |
+| **Key Management**           | [`generateKeyShares(userId)`](/docs/core/dwn-api-reference/key-management#generate-key-shares)                                 | Generates cryptographic key shares for a user using MPC.                                  |
+|                              | [`recoverKeyShares(userId, recoveryData)`](/docs/core/dwn-api-reference/key-management#recover-key-shares)                     | Recovers lost key shares using the provided recovery data.                                |
+| **Security and Permissions** | [`setWalletPermissions(walletId, permissions)`](/docs/core/dwn-api-reference/security-permissions#set-wallet-permissions)      | Sets or updates permissions for a specific wallet.                                        |
+|                              | [`revokeWalletAccess(walletId, userId)`](/docs/core/dwn-api-reference/security-permissions#revoke-wallet-access)               | Revokes access to a wallet for a specific user.                                           |
+| **Webhooks and Events**      | [`registerWebhook(url, events)`](/docs/core/dwn-api-reference/webhooks-events#register-webhook)                                | Registers a webhook to receive notifications for specific wallet events.                  |
+|                              | [`listenToWalletEvents(walletId, callback)`](/docs/core/dwn-api-reference/webhooks-events#listen-to-wallet-events)             | Listens to real-time events for a specific wallet.                                        |
+
+---

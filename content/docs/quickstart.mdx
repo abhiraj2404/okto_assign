@@ -4,6 +4,8 @@ description: "Get started with the Okto SDK by building a simple application tha
 icon: rocket
 ---
 
+import { Step, Steps } from "fumadocs-ui/components/steps";
+
 ## Create Your First Okto App
 
 Welcome to the Okto SDK Quickstart guide! In this tutorial, you’ll learn how to build a simple application that interacts with the Okto Layer. By the end of this guide, you’ll have a working app that performs a cross-chain token swap.
@@ -21,25 +23,45 @@ Before you begin, ensure you have the following:
 
 ---
 
-## Step 1: Set Up Your Project
+<Steps>
+<Step>
+## Set Up Your Project
 
 1. **Create a New Project**:
    Create a new directory for your project and initialize it with `npm` or `yarn`:
 
-   ```bash
-   mkdir my-okto-app
-   cd my-okto-app
-   npm init -y
-   ```
+```bash
+mkdir my-okto-app
+cd my-okto-app
+npm init -y
+```
 
 2. **Install the Okto SDK**:
    Install the Okto SDK package from npm:
 
-   ```bash
-   npm install @okto/sdk
-   ```
+<Tabs groupId='package-manager' persist items={['npm', 'pnpm', 'yarn', 'bun']}>
 
-## Step 2: Initialize the SDK
+```bash tab="npm"
+npm install okto-sdk
+```
+
+```bash tab="pnpm"
+pnpm install okto-sdk
+```
+
+```bash tab="yarn"
+yarn add okto-sdk
+```
+
+```bash tab="bun"
+bun add okto-sdk
+```
+
+</Tabs>
+
+</Step>
+<Step>
+## Initialize the SDK
 
 1. **Create an `index.js` File**:
    Create a new file named `index.js` in your project directory.
@@ -67,7 +89,9 @@ Before you begin, ensure you have the following:
 
    If everything is set up correctly, you should see the message: `Okto SDK initialized successfully!`.
 
-## Step 3: Perform a Cross-Chain Swap
+</Step>
+<Step>
+## Perform a Cross-Chain Swap
 
 Now that the SDK is initialized, let’s perform a cross-chain token swap.
 
@@ -107,15 +131,25 @@ Now that the SDK is initialized, let’s perform a cross-chain token swap.
 
    If the swap is successful, you’ll see the transaction details in the console.
 
-   ***
+</Step>
+<Step>
 
-   ## Step 4: Build a Simple UI (Optional)
+## Step 4: Build a Simple UI (Optional)
 
-   To make your app more interactive, you can add a simple HTML/JavaScript frontend.
+To make your app more interactive, you can add a simple HTML/JavaScript frontend.
 
-   1. **Create an `index.html` File**:
-      Create a new file named `index.html` in your project directory.
+1.  **Create an `index.html` File**:
+    Create a new file named `index.html` in your project directory.
 
-   2. **Add the UI Code**
+2.  **Add the UI Code**
 
-   3. **Run the App**
+3.  **Run the App**
+
+</Step>
+</Steps>
+
+---
+
+## Conclusion
+
+Congratulations! You’ve successfully built your first Okto app. 🚀

@@ -3,15 +3,59 @@ title: Authentication
 description: Components
 ---
 
-## Code Block
+import { TypeTable } from "fumadocs-ui/components/type-table";
 
-```js
-console.log("Hello World");
+The **Authentication** section of the DWN API provides functions to initialize the SDK and manage authentication tokens. Below are the available functions and their details.
+
+---
+
+## Functions
+
+### `initializeSDK(apiKey, environment)`
+
+Initializes the SDK with your API key and environment (testnet/mainnet).
+
+#### Parameters
+
+<TypeTable
+  type={{
+    apiKey: {
+      description: "Your unique API key for accessing the DWN API.",
+      type: "string",
+      required: true,
+    },
+    environment: {
+      description: 'The environment to use (e.g., "testnet" or "mainnet").',
+      type: "string",
+      required: true,
+      default: "testnet",
+    },
+  }}
+/>
+
+#### Example
+
+```javascript
+import OktoSDK from "okto-sdk";
+
+const okto = new OktoSDK({
+  apiKey: "your-api-key-here",
+  environment: "testnet",
+});
 ```
 
-## Cards
+---
 
-<Cards>
-  <Card title="Learn more about Next.js" href="https://nextjs.org/docs" />
-  <Card title="Learn more about Fumadocs" href="https://fumadocs.vercel.app" />
-</Cards>
+### `refreshToken()`
+
+Refreshes the authentication token for continued API access.
+
+#### Parameters
+
+This function does not take any parameters.
+
+### Example
+
+```javascript
+await okto.refreshToken();
+```

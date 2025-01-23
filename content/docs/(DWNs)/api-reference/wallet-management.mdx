@@ -3,15 +3,113 @@ title: Wallet Management
 description: Components
 ---
 
-## Code Block
+import { TypeTable } from "fumadocs-ui/components/type-table";
 
-```js
-console.log("Hello World");
+The **Wallet Management** section of the DWN API provides functions to create, fetch, and update wallets. Below are the available functions and their details.
+
+---
+
+## Functions
+
+### `createWallet(userId, loginMethod)`
+
+Creates a new wallet for a user with the specified login method (e.g., Google, Facebook).
+
+#### Parameters
+
+<TypeTable
+  type={{
+    userId: {
+      description: "A unique identifier for the user.",
+      type: "string",
+      required: true,
+    },
+    loginMethod: {
+      description:
+        'The login method for the wallet (e.g., "google", "facebook").',
+      type: "string",
+      required: true,
+    },
+  }}
+/>
+
+#### Example
+
+```javascript
+const wallet = await okto.createWallet({
+  userId: "user-123",
+  loginMethod: "google",
+});
+
+console.log("Wallet Created:", wallet);
 ```
 
-## Cards
+---
 
-<Cards>
-  <Card title="Learn more about Next.js" href="https://nextjs.org/docs" />
-  <Card title="Learn more about Fumadocs" href="https://fumadocs.vercel.app" />
-</Cards>
+### `getWallet(walletId)`
+
+Retrieves details of a specific wallet, including address and balance.
+
+#### Parameters
+
+<TypeTable
+  type={{
+    walletId: {
+      description: "The unique identifier of the wallet.",
+      type: "string",
+      required: true,
+    },
+  }}
+/>
+
+#### Example
+
+```javascript
+const wallet = await okto.getWallet("wallet-123");
+
+console.log("Wallet Details:", wallet);
+```
+
+---
+
+### `updateWallet(walletId, settings)`
+
+Updates wallet settings, such as permissions or recovery options.
+
+#### Parameters
+
+<TypeTable
+  type={{
+    walletId: {
+      description: "The unique identifier of the wallet.",
+      type: "string",
+      required: true,
+    },
+    settings: {
+      description: "An object containing the updated wallet settings.",
+      type: "object",
+      required: true,
+    },
+  }}
+/>
+
+#### Example
+
+```javascript
+await okto.updateWallet("wallet-123", {
+  permissions: { canSend: true, canReceive: false },
+});
+
+console.log("Wallet Updated");
+```
+
+---
+
+## Type Reference
+
+| Parameter   | Type   | Description                                                   | Required |
+| ----------- | ------ | ------------------------------------------------------------- | -------- |
+| userId      | string | A unique identifier for the user.                             | Yes      |
+| loginMethod | string | The login method for the wallet (e.g., "google", "facebook"). | Yes      |
+| walletId    | string | The unique identifier of the wallet.                          | Yes      |
+| settings    | object | An object containing the updated wallet settings.             | Yes      |
