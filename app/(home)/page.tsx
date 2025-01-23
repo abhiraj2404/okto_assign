@@ -4,22 +4,20 @@ import Link from "next/link";
 export default function HomePage() {
   return (
     <main className="flex flex-1 flex-col items-center justify-center min-h-screen bg-gradient-to-br from-fd-primary/10 via-fd-secondary/10 to-fd-primary/5 py-12 px-4">
-      {/* Container for Content */}
       <div className="max-w-5xl mx-auto text-center">
-        {/* Heading */}
-        <h1 className="mb-8 text-4xl font-bold bg-gradient-to-r from-fd-primary to-fd-primary/50 bg-clip-text text-transparent">
+        <h1 className="mb-8 text-3xl sm:text-4xl font-bold bg-gradient-to-r from-fd-primary to-fd-primary/50 bg-clip-text text-transparent">
           The Okto Layer: Unlocking a New Era of Chain Abstraction
         </h1>
-        <p className="text-xl text-fd-muted-foreground max-w-5xl mx-auto leading-relaxed">
+        <p className="text-lg sm:text-xl text-fd-muted-foreground max-w-5xl mx-auto leading-relaxed">
           The Okto Layer simplifies blockchain interactions by abstracting the
-          complexities of multi-chain transactions. Whether you're a developer
-          or an end-user, Okto lets you build and use Web3 applications
-          seamlessly.
+          complexities of multi-chain transactions. Whether you`&apos;`re a
+          developer or an end-user, Okto lets you build and use Web3
+          applications seamlessly.
         </p>
 
         <div className="flex gap-6 justify-center py-8">
           <Link
-            href="/docs/guide/quickstart"
+            href="/docs/quickstart"
             className="bg-fd-secondary text-white px-8 py-4 rounded-xl font-semibold hover:bg-fd-primary/90 transition-all transform hover:scale-105 shadow-lg dark:bg-fd-primary/100 dark:text-white dark:hover:bg-fd-primary/80"
           >
             Get Started
@@ -42,7 +40,6 @@ export default function HomePage() {
           />
         </div>
 
-        {/* Additional Link */}
         <p className="text-fd-muted-foreground mt-12">
           You can also explore the{" "}
           <Link
