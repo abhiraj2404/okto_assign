@@ -1,0 +1,14 @@
+{
+  "title": "ReactV2",
+  "pages": [
+    "index",
+    "getting-started",
+    "(Authentication)",
+    "(Usage)",
+    "v2migration",
+    "constants",
+    "changelog",
+    "(Example Apps)"
+  ],
+  "root": true
+}
