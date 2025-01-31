@@ -9,11 +9,8 @@
     "quickstart",
     "(Installation)",
 
-    "---Core ---",
-    "(DWNs)",
-    "(ULL)",
-    "(DTNs)",
-    "(The-okto-chain)",
+    "---SDKs---",
+    "React",
 
     "---Examples---",
     "[Showcase](https://docs.okto.tech/showcase)",
